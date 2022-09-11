@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import json
 
 """ Database structure
@@ -19,12 +19,23 @@ DATABASE_PATH = "database.json"
 
 @app.route('/')
 def hello():
-    return '<h1>Hello, World!</h1>'
+    return render_template('home.html')
 
 @app.route('/users', methods=['GET'])
 def getUsers():
     users = _getUsers()
     return users
+
+@app.route('/users/<email>', methods=['GET'])
+def getSingleUser(email):
+    if not _doesEmailExist(email):
+        return "User does not exist", 404
+
+    users = _getUsers()
+    for user in users:
+        if user['email'] == email:
+            return user
+    return "Not found", 404
 
 @app.route('/users', methods=['POST'])
 def createUser():

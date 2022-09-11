@@ -1,0 +1,36 @@
+<h1>Server is ready!</h1>
+
+<h1>APIs Supported</h1>
+APIs for CRUD operations on a user
+
+<h2>GET</h2>
+<ul>
+  <li>Get list of all users `/users`</li>
+  <li>Get single user `/users/<email>`</li>
+</ul>
+
+<h2>POST</h2>
+<ul>
+  <li>Create a new user `/users`</li>
+  <li>Payload: {
+    "email": "tejas@gmail",
+    "password": "12344",
+    "firstname": "test",
+    "lastname": "gujjar"
+  }</li>
+</ul>
+
+<h2>PUT</h2>
+<ul>
+  <li>Update an existing user `/users/<email>`</li>
+  <li>Payload: {
+    "password": "12344",
+    "firstname": "test",
+    "lastname": "gujjar"
+  }</li>
+</ul>
+
+<h2>DELETE</h2>
+<ul>
+  <li>Delete an existing user `/users/<email>`</li>
+</ul>
